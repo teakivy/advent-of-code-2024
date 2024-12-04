@@ -1,0 +1,15 @@
+{
+  "name": "advent-of-code-2024",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "TeakIvy",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "inquirer": "^12.1.0"
+  }
+}
