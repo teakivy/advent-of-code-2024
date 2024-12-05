@@ -3,6 +3,7 @@ import day1 from './Day1/day1.js';
 import day2 from './Day2/day2.js';
 import day3 from './Day3/day3.js';
 import day4 from './Day4/day4.js';
+import day5 from './Day5/day5.js';
 
 let aoc = {
 	day1: {
@@ -28,6 +29,12 @@ let aoc = {
 		part2: true,
 		obj: day4,
 		day: 4,
+	},
+	day5: {
+		part1: true,
+		part2: true,
+		obj: day5,
+		day: 5,
 	},
 };
 
@@ -101,4 +108,15 @@ async function main() {
 	}
 }
 
+function test() {
+	console.log();
+	console.log('Part 1:');
+	console.log(day5.part1());
+	console.log();
+	console.log('Part 2:');
+	console.log(day5.part2());
+	console.log();
+}
+
 main();
+// test();

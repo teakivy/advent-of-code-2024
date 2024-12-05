@@ -20,7 +20,7 @@ So far, I have completed all Parts up to Day 4 (the current day).
 - [Day 2](/Day2/day2.js) ⭐ ⭐
 - [Day 3](/Day3/day3.js) ⭐ ⭐
 - [Day 4](/Day4/day4.js) ⭐ ⭐
-- [Day 5](/Day5/day5.js)
+- [Day 5](/Day5/day5.js) ⭐ ⭐
 - [Day 6](/Day6/day6.js)
 - [Day 7](/Day7/day7.js)
 - [Day 8](/Day8/day8.js)
