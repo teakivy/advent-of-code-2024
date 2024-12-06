@@ -1,13 +1,13 @@
 import fs from 'fs';
 
 function part1() {
-	let input = readInput();
+	let input = readInput().replaceAll('\r', '');
 
 	return 0;
 }
 
 function part2() {
-	let input = readInput();
+	let input = readInput().replaceAll('\r', '');
 
 	return 0;
 }
