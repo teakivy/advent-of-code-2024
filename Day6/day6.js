@@ -68,7 +68,6 @@ function getNextDir(direction) {
 function part2() {
 	let input = readInput().replaceAll('\r', '');
 	let map = input.split('\n').map((group) => group.split(''));
-	let newMap = map.map((row) => [...row]);
 	let guard = { x: 0, y: 0 };
 	let direction = { x: 0, y: -1 };
 	for (let i = 0; i < map.length; i++) {
@@ -76,20 +75,39 @@ function part2() {
 			if (map[i][j] === '^') {
 				guard.x = j;
 				guard.y = i;
-
-				newMap[i][j] = 'X';
 			}
 		}
 	}
 
+	let infiniteLoops = 0;
+	for (let i = 0; i < map.length; i++) {
+		for (let j = 0; j < map[i].length; j++) {
+			let testMap = map.map((row) => [...row]);
+			testMap[i][j] = '#';
+			let testGuard = { x: guard.x, y: guard.y };
+			let testDirection = { x: direction.x, y: direction.y };
+			if (checkInfiniteLoop(testMap, testGuard, testDirection)) {
+				infiniteLoops++;
+			}
+		}
+	}
+
+	return infiniteLoops;
+}
+
+function checkInfiniteLoop(map, guard, direction) {
+	let newMap = map.map((row) => [...row]);
+	newMap[guard.y][guard.x] = 'X';
+
 	let patrolling = true;
-	let actuallyDone = false;
 	let positions = new Set();
-	let infinite = 0;
-	let infinitePos = new Set();
-	while (patrolling || !actuallyDone) {
-		if (!patrolling) actuallyDone = true;
-		positions.add(`${guard.x},${guard.y}:${direction.x},${direction.y}`);
+	while (patrolling) {
+		let positionString = `${guard.x},${guard.y}:${direction.x},${direction.y}`;
+		if (positions.has(positionString)) {
+			return true;
+		}
+
+		positions.add(positionString);
 		let next = { x: guard.x + direction.x, y: guard.y + direction.y };
 		if (!isInMap(map, next.x, next.y)) {
 			patrolling = false;
@@ -107,54 +125,11 @@ function part2() {
 		if (nextTile === '.' || nextTile === '^') {
 			guard.x = next.x;
 			guard.y = next.y;
-			if (newMap[guard.y][guard.x] !== 'O') {
-				newMap[guard.y][guard.x] = 'X';
-			}
-
-			if (checkInfiniteLoop(map, guard, direction)) {
-				infinitePos.add(`${guard.x},${guard.y}:${direction.x},${direction.y}`);
-			}
+			newMap[guard.y][guard.x] = 'X';
 			continue;
 		}
 	}
 
-	console.log(positions.size);
-
-	console.log(infinitePos);
-	return infinitePos.size;
-}
-
-function checkInfiniteLoop(map, guard, direction) {
-	direction = getNextDir(direction);
-	let initalPos = `${guard.x},${guard.y}:${direction.x},${direction.y}`;
-	let patrolling = true;
-	let positions = new Set();
-	while (patrolling) {
-		positions.add(`${guard.x},${guard.y}:${direction.x},${direction.y}`);
-		if (
-			initalPos === `${guard.x},${guard.y}:${direction.x},${direction.y}` &&
-			positions.size > 1
-		) {
-			return true;
-		}
-		let next = { x: guard.x + direction.x, y: guard.y + direction.y };
-		if (!isInMap(map, next.x, next.y)) {
-			patrolling = false;
-			break;
-		}
-		let nextTile = map[next.y][next.x];
-
-		if (nextTile === '#') {
-			direction = getNextDir(direction);
-			continue;
-		}
-
-		if (nextTile === '.' || nextTile === '^') {
-			guard.x = next.x;
-			guard.y = next.y;
-			continue;
-		}
-	}
 	return false;
 }
 

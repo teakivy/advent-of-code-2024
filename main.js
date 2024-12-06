@@ -39,7 +39,7 @@ let aoc = {
 	},
 	day6: {
 		part1: true,
-		part2: false,
+		part2: true,
 		obj: day6,
 		day: 6,
 	},
