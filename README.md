@@ -22,11 +22,11 @@ So far, I have completed all Parts up to Day 4 (the current day).
 - [Day 4](/Day4/day4.js) ⭐ ⭐
 - [Day 5](/Day5/day5.js) ⭐ ⭐
 - [Day 6](/Day6/day6.js) ⭐ ⭐
-- [Day 7](/Day7/day7.js)
-- [Day 8](/Day8/day8.js)
-- [Day 9](/Day9/day9.js)
-- [Day 10](/Day10/day10.js)
-- [Day 11](/Day11/day11.js)
+- [Day 7](/Day7/day7.js) ⭐ ⭐
+- [Day 8](/Day8/day8.js) ⭐ ⭐
+- [Day 9](/Day9/day9.js) ⭐ ⭐
+- [Day 10](/Day10/day10.js) ⭐ ⭐
+- [Day 11](/Day11/day11.js) ⭐ ⭐
 - [Day 12](/Day12/day12.js)
 - [Day 13](/Day13/day13.js)
 - [Day 14](/Day14/day14.js)
